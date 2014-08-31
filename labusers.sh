@@ -13,7 +13,10 @@ do
    #echo "$line"
    if [ "$username" != "" ]
    then
+      labName=`echo "$lab" | tr -d [:0-9]`
+      logintime=`lab $labName | grep "$username" | cut -d';' -f2`
       name=`./getusername.sh "$username"`
-   echo "$lab $name"
+      subject=`./getsubject.sh "$username"`
+      echo "$lab$name $logintime $subject"
    fi
 done
