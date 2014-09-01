@@ -9,14 +9,35 @@ for line in $filter
 do
    username=`echo "$line" | cut -d'-' -f2`
    lab=`echo "$line" | cut -d'-' -f1`
-   #echo "$line"
-   #echo "$line"
+   
    if [ "$username" != "" ]
    then
       labName=`echo "$lab" | tr -d [:0-9]`
       logintime=`lab $labName | grep "$username" | cut -d';' -f2`
       name=`./getusername.sh "$username"`
       subject=`./getsubject.sh "$username"`
-      echo "$lab$name $logintime $subject"
+      new=`echo "$lab$name $logintime $subject"`
+
+      if [ $# -gt 0 ]
+      then
+         greped=`echo "$new" | grep $1`
+         if [ $# -gt 1 ]
+         then
+            greped=`echo "$greped" | grep $2`
+         fi
+         if [ $# -gt 2 ]
+         then
+            greped=`echo "$greped" | grep $3`
+            fi
+         if [ $# -gt 3 ]
+         then
+            greped=`echo "$greped" | grep $4`
+         fi
+         new=`echo "$greped"`
+      fi
+      if [ "$new" != "" ]
+      then
+         echo "$new"
+      fi
    fi
 done
