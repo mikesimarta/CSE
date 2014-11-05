@@ -17,7 +17,7 @@ do
          then
             if [ $tAM ]
             then
-               echo $cse
+               #echo $cse
                ./getusername.sh $cse
                echo "$user"
             fi
@@ -25,7 +25,7 @@ do
         then
            if [ $tPM ]
            then
-              echo $cse
+              #echo $cse
               ./getusername.sh $cse
               echo "$user"
            fi
@@ -40,7 +40,7 @@ do
       then
          if [ $tAM ]
          then
-            echo $cse
+            #echo $cse
             ./getusername.sh $cse
             echo "$user"
          fi
@@ -48,21 +48,21 @@ do
      then
         if [ $tPM ]
         then
-           echo $cse
+           #echo $cse
            ./getusername.sh $cse
            echo "$user"
         fi
      else
         if [ $alab ]
         then
-           echo $cse
+           #echo $cse
            ./getusername.sh $cse
            echo "$user"
         fi
      fi
    elif [ $# -ge 1 ]
    then
-      echo $cse
+      #echo $cse
       ./getusername.sh $cse
       echo "$user"
    fi
